@@ -205,7 +205,6 @@
                 </GroupBox.Header>
                 <Grid Margin="5">
                     <TextBlock Text="辨識結果:" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 200 120" FontWeight="Bold"/>
-                    <TextBlock x:Name="Identify_Result_txt" Background="#A4A4AA" Width="250" Height="100"/>
                     <TextBlock Text="信心水準:" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 150 200 0" FontWeight="Bold"/>
                     <TextBlock Background="#D9D9D9" Width="85" Height="15" Margin="0 150 50 0"/>
                 </Grid>
