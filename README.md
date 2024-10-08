@@ -4,8 +4,10 @@
 #### 1. 開啟Visual Studio並在右側中選擇複製存放庫。
 ![範例圖片](https://github.com/totogn05/MIRDC/blob/main/aa.png)
 #### 2. 在存放庫位置中輸入這邊的網址 https://github.com/totogn05/Classfication.git。
+![範例圖片](https://github.com/totogn05/MIRDC/blob/main/Input_URL.png)
 #### 3. 在桌面先建立一個空白資料夾，建立後點選選擇路徑，並選擇新建立的資料夾。
 #### 4. 之後按下「複製」。
+![範例圖片](https://github.com/totogn05/MIRDC/blob/main/CopyBtn.png)
 #### 5. 複製後，在方案總管中可以看到本來在GitHub上專案中所有的資料跟檔案都載入到你的Visual Studio中。
 ### 第二步、修改後建立分支及Push
 #### 1. 當你專案製作完後，一定會對專案進行修改或刪除，修改後要建立分支(一定要建立分支，不建立修改都會無效)。
