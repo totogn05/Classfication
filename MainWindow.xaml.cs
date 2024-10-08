@@ -72,7 +72,7 @@ namespace Classfication
                 float[] probabilities = output.ToArray();
                 int predictedClassIndex = Array.IndexOf(probabilities, probabilities.Max());
                 float maxProbability = probabilities[predictedClassIndex];
-                Identify_Result_txt.Text = Result[predictedClassIndex];
+                //Identify_Result_txt.Text = Result[predictedClassIndex];
             }
         }
         public static Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
@@ -153,6 +153,8 @@ namespace Classfication
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(openFileDialog.FileName);
                     bitmap.EndInit();
+                    // 儲存原始圖像
+                    originalImage = BitmapImageToBitmap(bitmap);
                     Vertify_Image.Source = bitmap; // show image on the Vertify_Image
                     Image = bitmap;
                     SelectPic_txt.Text = Path.GetFileName(openFileDialog.FileName);
@@ -243,24 +245,14 @@ namespace Classfication
                 ContrastValue.Text = $"{e.NewValue:F0}%";
             }
 
-            // 確保有原始圖像存在
             if (originalImage != null)
             {
-                // 檢查是否真的有變化再執行調整，避免每次都重複處理
                 float contrastValue = (float)e.NewValue;
                 if (contrastValue != currentContrastValue)
                 {
                     currentContrastValue = contrastValue;
-
-                    // 調整圖片的對比度，只在對比度變更時才進行
-                    // 這裡的 contrastedBitmap 會被重複利用
-                    if (Vertify_Image.Source is BitmapImage bitmapImage)
-                    {
-                        Bitmap contrastedBitmap = AdjustContrast(originalImage, contrastValue);
-
-                        // 儲存調整後的圖片，避免反覆創建
-                        Vertify_Image.Source = BitmapToBitmapImage(contrastedBitmap);
-                    }
+                    Bitmap contrastedBitmap = AdjustContrast(originalImage, contrastValue); // 這裡使用 originalImage
+                    Vertify_Image.Source = BitmapToBitmapImage(contrastedBitmap); // 更新顯示的圖像
                 }
             }
         }
@@ -293,7 +285,6 @@ namespace Classfication
 
             return newImage; // 返回新的對比度調整後的圖像
         }
-
         private BitmapImage BitmapToBitmapImage(Bitmap bitmap)
         {
             using (MemoryStream memoryStream = new MemoryStream())
