@@ -61,21 +61,21 @@
                         </StackPanel>
 
                         <Grid Background="#FBF8ED" Height="40" Width="250" Margin="0 20 0 0">
-                            <TextBlock Text="圖片縮放 : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Slider Name="ImageScaleSlider" Width="130" Height="18" VerticalAlignment="Center" Margin="40 3 0 0" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged_1" PreviewMouseWheel="ImageScaleSlider_MouseWheel"/>
-                            <TextBlock Name="ImageScaleValue" Height="15" Width="40" HorizontalAlignment="Right" Margin="0 0 0 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="圖片縮放 : " Height="15" Width="60" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                            <Slider Name="ImageScaleSlider" Width="110" Height="18" VerticalAlignment="Center" Margin="20 3 0 0" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged_1" PreviewMouseWheel="ImageScaleSlider_MouseWheel"/>
+                            <TextBlock Name="ImageScaleValue" Height="15" Width="40" HorizontalAlignment="Right" Margin="0 0 20 0" VerticalAlignment="Center"/>
                             <!-- 添加重置按鈕 -->
-                            <Button Name="ResetButton1" Margin="215,0,-30,-1" Width="15" Height="15" Click="ResetButton_Click1" Background="Transparent" BorderThickness="0">
+                            <Button Name="ResetButton1" HorizontalAlignment="Right" Width="15" Height="15" Click="ResetButton_Click1" Background="#FBF8ED" BorderThickness="0">
                                 <Image Source="resources/reset.jpg" Stretch="Uniform"/>
                             </Button>
                         </Grid>
 
                         <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center" Margin="0 20 0 0">
-                            <TextBlock Text="對比度 : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Slider Name="ContrastSlider" Width="130" Height="18" VerticalAlignment="Center" Margin="40 3 3 0" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged" PreviewMouseWheel="ContrastSlider_MouseWheel"/>
-                            <TextBlock Name="ContrastValue" Height="15" Width="40" HorizontalAlignment="Right" Margin="0 0 3 0" VerticalAlignment="Center"/>
+                            <TextBlock Text="對比度 : " Height="15" Width="60" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                            <Slider Name="ContrastSlider" Width="110" Height="18" VerticalAlignment="Center" Margin="20 3 3 0" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged" PreviewMouseWheel="ContrastSlider_MouseWheel"/>
+                            <TextBlock Name="ContrastValue" Height="15" Width="40" HorizontalAlignment="Right" Margin="0 0 20 0" VerticalAlignment="Center"/>
                             <!-- 添加重置按鈕 -->
-                            <Button Name="ResetButton" Margin="215,0,-30,-1" Width="15" Height="15" Click="ResetButton_Click" Background="Transparent" BorderThickness="0">
+                            <Button Name="ResetButton" HorizontalAlignment="Right" Width="15" Height="15" Click="ResetButton_Click" Background="#FBF8ED" BorderThickness="0">
                                 <Image Source="resources/reset.jpg" Stretch="Uniform"/>
                             </Button>
                         </Grid>
@@ -149,13 +149,13 @@
 
             <!-- Previous_Image_Button -->
             <Button x:Name="Previous_Image_Button" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                Width="40" Height="40" Margin="0 0 0 5" BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click">
+                Width="30" Height="30"  BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click">
                 <Image Source=".\resources\previous_image_button.png"/>
             </Button>
 
             <!-- Next_Image_Button -->
             <Button x:Name="Next_Image_Button" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
-                Width="40" Height="40" Margin="0 0 0 5" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
+                Width="30" Height="30" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
                 <Image Source=".\resources\next_image_buttom.png"/>
             </Button>
             <Border Grid.Row="1" BorderThickness="0 1 0 0" BorderBrush="Gray">
