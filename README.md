@@ -20,4 +20,4 @@
 ![範例圖片](https://github.com/totogn05/MIRDC/blob/main/branch_windows2.png)
 #### 5. 提交會提示已全部提交，但這樣還沒有上傳給我，必須要按下右上角向上的推送箭頭推送到遠端的github(就是這裡)，這樣就是給我審核了。
 ![範例圖片](https://github.com/totogn05/MIRDC/blob/main/branch_windows2.png)
-#### 6. 有錯誤或問題我會退回去給你們修改。
+#### 6. 有錯誤或問題我會退回去給你們並跟你們討論，你們記得要改好啊。
