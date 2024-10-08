@@ -148,14 +148,14 @@
             <!-- button location -->
 
             <!-- Previous_Image_Button -->
-            <Button x:Name="Previous_Image_Button" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
-                Width="30" Height="30"  BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click">
+            <Button x:Name="Previous_Image_Button" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin =" 0 30 0 0"
+                Width="35" Height="35"  BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click">
                 <Image Source=".\resources\previous_image_button.png"/>
             </Button>
 
             <!-- Next_Image_Button -->
-            <Button x:Name="Next_Image_Button" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
-                Width="30" Height="30" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
+            <Button x:Name="Next_Image_Button" HorizontalAlignment="Right" VerticalAlignment="Top" Margin =" 0 30 0 0"
+                Width="35" Height="35" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
                 <Image Source=".\resources\next_image_buttom.png"/>
             </Button>
             <Border Grid.Row="1" BorderThickness="0 1 0 0" BorderBrush="Gray">
