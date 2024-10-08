@@ -283,7 +283,7 @@ namespace Classfication
                 }
             }
 
-            return newImage; // 返回新的對比度調整後的圖像
+            return newImage; // 返回新的對比度調整後的圖像123
         }
         private BitmapImage BitmapToBitmapImage(Bitmap bitmap)
         {
