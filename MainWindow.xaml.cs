@@ -68,11 +68,11 @@ namespace Classfication
             var output = results?.FirstOrDefault()?.AsTensor<float>();
             if (output != null)
             {
-                string[] Result = new string[] { "焊接良好", "燒穿", "焊接中有汙染", "焊接斥有縫隙", "缺乏保護氣體", "銲槍移動速度過快" };
+                string[] Result = new string[] { "焊接良好", "燒穿", "焊接中有汙染", "焊接處有縫隙", "缺乏保護氣體", "銲槍移動速度過快" };
                 float[] probabilities = output.ToArray();
                 int predictedClassIndex = Array.IndexOf(probabilities, probabilities.Max());
                 float maxProbability = probabilities[predictedClassIndex];
-                Identify_Result_txt.Text = Result[predictedClassIndex];
+
             }
         }
         public static Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
