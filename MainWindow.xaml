@@ -84,48 +84,15 @@
             </GroupBox>
             <GroupBox Grid.Row="1" BorderThickness="2" BorderBrush="Gray" Margin="0 0 5 0">
                 <GroupBox.Header>
-                    <TextBlock Text="掃描器變數" Style="{StaticResource TextStyle}"/>
+                    <TextBlock Text="辨識數據" Style="{StaticResource TextStyle}"/>
                 </GroupBox.Header>
                 <Grid Margin="5">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center">
-                            <TextBlock Text="Select Image : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Button Width="20" Height="20" Background="Transparent" BorderThickness="0" Margin="-20 0 0 0">
-                                <Image Source="resources/folder.png"/>
-                            </Button>
-                        </Grid>
-                        <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center" Margin="0 20 0 0">
-                            <TextBlock Text="Select Image : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Button Width="20" Height="20" Background="Transparent" BorderThickness="0" Margin="-20 0 0 0">
-                                <Image Source="resources/folder.png"/>
-                            </Button>
-                        </Grid>
-                        <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center" Margin="0 20 0 0">
-                            <TextBlock Text="Select Image : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Button Width="20" Height="20" Background="Transparent" BorderThickness="0" Margin="-20 0 0 0">
-                                <Image Source="resources/folder.png"/>
-                            </Button>
-                        </Grid>
-                        <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center" Margin="0 20 0 0">
-                            <TextBlock Text="Select Image : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Button Width="20" Height="20" Background="Transparent" BorderThickness="0" Margin="-20 0 0 0">
-                                <Image Source="resources/folder.png"/>
-                            </Button>
-                        </Grid>
-                        <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center" Margin="0 20 0 0">
-                            <TextBlock Text="Select Image : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <Button Width="20" Height="20" Background="Transparent" BorderThickness="0" Margin="-20 0 0 0">
-                                <Image Source="resources/folder.png"/>
-                            </Button>
-                        </Grid>
-                    </StackPanel>
                 </Grid>
             </GroupBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Style="{StaticResource TextStyle}" Text="熔池影像" />
@@ -158,20 +125,36 @@
                 Width="35" Height="35" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
                 <Image Source=".\resources\next_image_buttom.png"/>
             </Button>
-            <Border Grid.Row="1" BorderThickness="0 1 0 0" BorderBrush="Gray">
-                <TextBlock Grid.Row="1" Style="{StaticResource TextStyle}" Text="掃描器影像" />
-            </Border>
             <Border Grid.Row="2" BorderThickness="0 1 0 0" BorderBrush="Gray">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Style="{StaticResource TextStyle}" Text="模型辨識" />
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Style="{StaticResource ButtonStyle}" Click="Vertify_btn" Height="30" Content="辨識"/>
-                    </StackPanel>
-
+                    <TextBlock Grid.Row="0" Style="{StaticResource TextStyle}" Text="缺陷辨識結果" />
+                    <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Image Source=".\resources\Under_filled.png" Width="90" Height="90" Margin="10 0 0 0"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    
                 </Grid>
             </Border>
         </Grid>
@@ -201,10 +184,10 @@
             </GroupBox>
             <GroupBox Grid.Row="1" BorderThickness="2" BorderBrush="Gray" Margin="5 0 0 0">
                 <GroupBox.Header>
-                    <TextBlock Text="辨識結果" Style="{StaticResource TextStyle}"/>
+                    <TextBlock Text="推理結果" Style="{StaticResource TextStyle}"/>
                 </GroupBox.Header>
                 <Grid Margin="5">
-
+                    <Button Style="{StaticResource ButtonStyle}" Click="Vertify_btn" Height="30" Content="辨識" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                 </Grid>
             </GroupBox>
 
