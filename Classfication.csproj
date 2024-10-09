@@ -14,6 +14,7 @@
     <None Remove="resources\next_image_buttom.png" />
     <None Remove="resources\previous_image_button.png" />
     <None Remove="resources\reset.jpg" />
+    <None Remove="resources\Under_filled.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <Resource Include="resources\next_image_buttom.png" />
     <Resource Include="resources\previous_image_button.png" />
     <Resource Include="resources\reset.jpg" />
+    <Resource Include="resources\Under_filled.png" />
   </ItemGroup>
 
 </Project>
