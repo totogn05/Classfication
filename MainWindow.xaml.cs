@@ -113,7 +113,7 @@ namespace Classfication
             if (MutiplePic_Model.IsChecked == false && SinglePic_Model.IsChecked == false)
             {
                 MessageBox.Show("請選取圖片模式", "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return; 
+                return;
             }
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -121,47 +121,55 @@ namespace Classfication
 
             if (MutiplePic_Model.IsChecked == true)
             {
-                openFileDialog.Multiselect = true; // allow to select Multiselect
+                openFileDialog.Multiselect = true; // allow to select multiple images
             }
 
             if (openFileDialog.ShowDialog() == true)
             {
-                
                 if (MutiplePic_Model.IsChecked == true)
                 {
-                    images.Clear(); // clear the pictures had selected 
+                    images.Clear(); // clear previously selected images
                     foreach (var fileName in openFileDialog.FileNames)
                     {
                         BitmapImage bitmap = new BitmapImage();
                         bitmap.BeginInit();
                         bitmap.UriSource = new Uri(fileName);
                         bitmap.EndInit();
-                        images.Add(bitmap); // add new picture to list
+                        images.Add(bitmap); // add new image to list
 
-                        // 儲存原始圖像
+                        // Save original image
                         originalImage = BitmapImageToBitmap(bitmap);
-
                     }
                     currentImageIndex = 0;
                     DisplayCurrentImage(); // show first image
+
+                    // Show the previous and next buttons in multiple image mode
+                    Previous_Image_Button.Visibility = Visibility.Visible;
+                    Next_Image_Button.Visibility = Visibility.Visible;
                 }
                 else if (SinglePic_Model.IsChecked == true)
                 {
-                    // select single picture
-                    images.Clear(); // clear the pictures had selected
+                    // select single image
+                    images.Clear(); // clear previously selected images
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(openFileDialog.FileName);
                     bitmap.EndInit();
-                    Vertify_Image.Source = bitmap; // show image on the Vertify_Image
+
+                    // Save original image
+                    originalImage = BitmapImageToBitmap(bitmap);
+                    Vertify_Image.Source = bitmap; // display selected image in Vertify_Image
                     Image = bitmap;
                     SelectPic_txt.Text = Path.GetFileName(openFileDialog.FileName);
                     PicSize_txt.Text = bitmap.Width.ToString("0") + "X" + bitmap.Height.ToString("0");
+
+                    // Hide the previous and next buttons in single image mode
+                    Previous_Image_Button.Visibility = Visibility.Collapsed;
+                    Next_Image_Button.Visibility = Visibility.Collapsed;
                 }
-
             }
-
         }
+
 
 
         private void Model_Select(object sender, RoutedEventArgs e)
