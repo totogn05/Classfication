@@ -266,7 +266,7 @@ namespace Classfication
             float adjustedContrast = 1 + contrast;
             float brightnessOffset = 128 * (1 - adjustedContrast);
 
-            Bitmap newImage = image;
+            Bitmap newImage = new Bitmap(image.Width, image.Height); ;
             using (Graphics g = Graphics.FromImage(newImage))
             {
                 float[][] matrixElements = {
