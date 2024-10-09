@@ -42,7 +42,7 @@
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <Grid Background="#FBF8ED" Height="40" Width="250" VerticalAlignment="Center">
                             <TextBlock Text="辨識模式 : " Height="15" Width="80" HorizontalAlignment="Left" Margin="20 0 0 0"/>
-                            <CheckBox x:Name="SinglePic_Model" Checked="Model_Select" IsChecked="True" Content="單張圖片" Width="80" Height="20" VerticalContentAlignment="Center" Margin="-10 0 0 0"/>
+                            <CheckBox x:Name="SinglePic_Model" Checked="Model_Select" IsChecked="True" Content="單張圖片" Width="80" Height="20" VerticalContentAlignment="Center" Margin="80,10,0,10" HorizontalAlignment="Left"/>
                             <CheckBox x:Name="MutiplePic_Model" Checked="Model_Select" IsChecked="False" Content="多張圖片" Width="80" Height="20" VerticalContentAlignment="Center" Margin="130 0 0 0"/>
                             <Button Width="20" Height="20" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 -5 10 0" Click="Select_Image_Click">
                                 <Image Source="resources/folder.png"/>
@@ -92,19 +92,19 @@
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="450"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Style="{StaticResource TextStyle}" Text="熔池影像" />
-            <Border Grid.Row="0" VerticalAlignment="Top" Margin="0 29 0 0">
+            <TextBlock Grid.Row="0" Style="{StaticResource TextStyle}" Text="熔池影像" FontSize="20" />
+            <Border Grid.Row="1">
                 <!-- 滾動區域 -->
                 <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                     <Grid>
                         <Image x:Name="Vertify_Image" 
-                           Stretch="None" 
-                           VerticalAlignment="Center" 
-                           HorizontalAlignment="Center" 
-                           RenderTransformOrigin="0.5, 0.5">
+                               Stretch="None" 
+                               Margin="10"
+                               RenderTransformOrigin="0.5, 0.5">
                             <Image.RenderTransform>
                                 <ScaleTransform x:Name="ImageScaleTransform" ScaleX="1" ScaleY="1"/>
                             </Image.RenderTransform>
@@ -115,14 +115,14 @@
             <!-- button location -->
 
             <!-- Previous_Image_Button -->
-            <Button x:Name="Previous_Image_Button" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin =" 0 30 0 0"
-                Width="35" Height="35"  BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click">
+            <Button x:Name="Previous_Image_Button" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 30 0"
+                Width="30" Height="30"  BorderBrush="Transparent" Background="Transparent" Click="Previous_Image_Click" Visibility="Hidden">
                 <Image Source=".\resources\previous_image_button.png"/>
             </Button>
 
             <!-- Next_Image_Button -->
-            <Button x:Name="Next_Image_Button" HorizontalAlignment="Right" VerticalAlignment="Top" Margin =" 0 30 0 0"
-                Width="35" Height="35" BorderBrush="Transparent" Background="Transparent" Click="Next_Image_Click">
+            <Button x:Name="Next_Image_Button" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                Width="30" Height="30" BorderBrush="Transparent" Background="Transparent" Visibility="Hidden" Click="Next_Image_Click">
                 <Image Source=".\resources\next_image_buttom.png"/>
             </Button>
             <Border Grid.Row="2" BorderThickness="0 1 0 0" BorderBrush="Gray">

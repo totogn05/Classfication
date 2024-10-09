@@ -144,6 +144,8 @@ namespace Classfication
                     }
                     currentImageIndex = 0;
                     DisplayCurrentImage(); // show first image
+                    Previous_Image_Button.Visibility = Visibility.Visible;
+                    Next_Image_Button.Visibility = Visibility.Visible;
                 }
                 else if (SinglePic_Model.IsChecked == true)
                 {
@@ -159,12 +161,13 @@ namespace Classfication
                     Image = bitmap;
                     SelectPic_txt.Text = Path.GetFileName(openFileDialog.FileName);
                     PicSize_txt.Text = bitmap.Width.ToString("0") + "X" + bitmap.Height.ToString("0");
+                    Previous_Image_Button.Visibility = Visibility.Hidden;
+                    Next_Image_Button.Visibility = Visibility.Hidden;
                 }
 
             }
 
         }
-
 
         private void Model_Select(object sender, RoutedEventArgs e)
         {
@@ -263,19 +266,17 @@ namespace Classfication
             float adjustedContrast = 1 + contrast;
             float brightnessOffset = 128 * (1 - adjustedContrast);
 
-            Bitmap newImage = new Bitmap(image.Width, image.Height);
+            Bitmap newImage = image;
             using (Graphics g = Graphics.FromImage(newImage))
             {
                 float[][] matrixElements = {
-            new float[] { adjustedContrast, 0, 0, 0, brightnessOffset },
-            new float[] { 0, adjustedContrast, 0, 0, brightnessOffset },
-            new float[] { 0, 0, adjustedContrast, 0, brightnessOffset },
-            new float[] { 0, 0, 0, 1, 0 },
-            new float[] { 0, 0, 0, 0, 1 }
-        };
-
+                                                new float[] { adjustedContrast, 0, 0, 0, brightnessOffset },
+                                                new float[] { 0, adjustedContrast, 0, 0, brightnessOffset },
+                                                new float[] { 0, 0, adjustedContrast, 0, brightnessOffset },
+                                                new float[] { 0, 0, 0, 1, 0 },
+                                                new float[] { 0, 0, 0, 0, 1 }
+                                           };
                 ColorMatrix colorMatrix = new ColorMatrix(matrixElements);
-
                 using (ImageAttributes attributes = new ImageAttributes())
                 {
                     attributes.SetColorMatrix(colorMatrix);
