@@ -154,7 +154,7 @@
                             </TextBlock>
                         </StackPanel>
                     </Grid>
-                    
+
                 </Grid>
             </Border>
         </Grid>
@@ -187,7 +187,27 @@
                     <TextBlock Text="推理結果" Style="{StaticResource TextStyle}"/>
                 </GroupBox.Header>
                 <Grid Margin="5">
-                    <Button Style="{StaticResource ButtonStyle}" Click="Vertify_btn" Height="30" Content="辨識" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                    <Button Style="{StaticResource ButtonStyle}" Click="Vertify_btn" Height="30" Content="辨識" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="-0.376,0.34"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" BorderThickness="2" BorderBrush="Gray" Margin="5 0 0 0">
+                <GroupBox.Header>
+                    <TextBlock Text="辨識結果" Style="{StaticResource TextStyle}"/>
+                </GroupBox.Header>
+                <Grid Margin="5">
+                    <DataGrid x:Name="ResultDataGrid" AutoGenerateColumns="False" Width="200" Margin="32,15,31,96">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="分類名稱" Binding="{Binding Label}" Width="130"/>
+                            <DataGridTextColumn Header="信心程度" Binding="{Binding Probability, StringFormat=P2}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!-- 顯示分類結果 -->
+
+                    <TextBlock Text="最高機率的辨識結果：" Style="{StaticResource TextStyle}" Margin="6,204,5,61"/>
+                    <TextBlock x:Name="TopResultTextBlock" FontSize="16" Margin="10,239,18,34"/>
+
                 </Grid>
             </GroupBox>
 

@@ -61,20 +61,47 @@ namespace Classfication
         {
             // 預處理圖片
             var inputTensor = PreprocessImage(BitmapImageToBitmap(Image), 640, 640);
-            // 
             var inputs = new[] { NamedOnnxValue.CreateFromTensor("images", inputTensor) };
             using var results = session?.Run(inputs);
 
             var output = results?.FirstOrDefault()?.AsTensor<float>();
             if (output != null)
             {
-                string[] Result = new string[] { "焊接良好", "燒穿", "焊接中有汙染", "焊接斥有縫隙", "缺乏保護氣體", "銲槍移動速度過快" };
+                // 定義類別標籤
+                string[] Result = new string[] { "焊接良好", "燒穿", "焊接中有汙染", "焊接處有縫隙", "缺乏保護氣體", "銲槍移動速度過快" };
                 float[] probabilities = output.ToArray();
+
+                // 將結果綁訂到表格
+                List<ClassificationResult> classificationResults = new List<ClassificationResult>();
+                for (int i = 0; i < probabilities.Length; i++)
+                {
+                    classificationResults.Add(new ClassificationResult
+                    {
+                        Label = Result[i],
+                        Probability = probabilities[i]
+                    });
+                }
+
+                // 顯示表格
+                ResultDataGrid.ItemsSource = classificationResults;
+
+                // 找到最高概率的分類結果
                 int predictedClassIndex = Array.IndexOf(probabilities, probabilities.Max());
                 float maxProbability = probabilities[predictedClassIndex];
-                //Identify_Result_txt.Text = Result[predictedClassIndex];
+
+                // 顯示最高概率的分類結果
+                TopResultTextBlock.Text = Result[predictedClassIndex];
             }
         }
+
+        // 定義用於綁定結果的類別
+        public class ClassificationResult
+        {
+            public string Label { get; set; }
+            public float Probability { get; set; }
+        }
+
+
         public static Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
         {
             using (MemoryStream memoryStream = new MemoryStream())
